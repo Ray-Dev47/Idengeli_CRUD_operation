@@ -21,16 +21,17 @@ public class Idengeli_CRUD {
             System.out.println("4. DELETE");
             System.out.println("5. UPDATE");
             ch = input1.nextInt();
-            input1.close();
+            // input1.close();
             
             // input2.close();
-
 
             // Insert operation and we will use a switch statement to perform the crud based on the number entered
             switch (ch) {
                 case 1:
                 try {
+                    
                     input1.nextLine();
+                    
                      System.out.println("Enter first name");
                      String name = input1.nextLine();
                      System.out.println("enter age");
@@ -40,18 +41,21 @@ public class Idengeli_CRUD {
                       input1.nextLine();
                      System.out.println("Enter networth");
                     int netWorth = input1.nextInt();
-                    // input1.close();
+                    
                     // next we use the arraylist collection to add the scanner inputs 
-                    // c.add(new Employee(eno, ename,
                     fam.add(new Idengeli(name, age, food, netWorth));
                     System.out.println("-------------------");
                     System.out.println("Family record entered successfully");
                     System.out.println("-------------------");
+                    // input1.close();
                 } catch (Exception e) {
                    e.printStackTrace();
+                   System.out.println("Error occured");
+                } 
+                finally{
+                    System.out.println("Some code here");
                 }
                     break;
-
                     //DISPLAY function:   below allows us to iterate through Idengeli to display
                     case 2:
                     System.out.println("----------------");
@@ -82,7 +86,12 @@ public class Idengeli_CRUD {
                         System.out.println(x);
                     }
                     System.out.println("-----------------");
+                    input1.close();
                     break;
+
+                    // delete operation
+                    // case 4:
+
 
 
                     

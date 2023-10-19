@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 /**
@@ -117,8 +118,39 @@ public class Idengeli_CRUD {
                         System.out.println("Family deleted successfully");
                     }
                                         
-                    break;             
-               
+                    break;  
+                    case 5:
+                    foundIdengeli = false;
+                    System.out.println("Enter age to update");
+                    int updateAge = input1.nextInt();
+                    // input1.nextLine();
+                    ListIterator<Idengeli> j = fam.listIterator();
+                    while(j.hasNext()){
+                        Idengeli id = j.next();
+                        if(id.getAge() == updateAge){
+                            System.out.println("Enter new name");
+                           String newName = input1.nextLine();
+                           input1.nextLine();
+                           System.out.println("Enter new food");
+                           String newFood = input1.nextLine();
+                           System.out.println("Enter new networth");
+                           int newWorth = input1.nextInt();
+                           j.set(new Idengeli(newName, updateAge, newFood, newWorth));
+                           foundIdengeli = true;
+                           
+                        }else{
+                            System.out.println("Wrong age entered");
+                        }
+                    }    
+                    System.out.println("-----------------");  
+                     if(!foundIdengeli){
+                        // String x = "Family member not found";
+                        System.out.println("Family member not found");
+                        
+                    }else{
+                        System.out.println("Family updated successfully, click display to confirm");
+                         input1.close();
+                    }                         
             }
            
 

@@ -70,35 +70,57 @@ public class Idengeli_CRUD {
                     // case 3 Read Operation to search for idengeli family member
                     case 3:
                     boolean foundIdengeli = false;
-                    System.out.println("Enter first name to search");
-                    String searchName = input1.nextLine();
+                    System.out.println("Enter age to search");
+                    int searchAge = input1.nextInt();
+                    input1.nextLine();
                     System.out.println("-----------------");
                     i = fam.iterator();
                     while (i.hasNext()) {
                         Idengeli id = i.next();
-                        if(id.getName() == searchName){
+                        if(id.getAge() == searchAge){
                             System.out.println(id);
-                            foundIdengeli = false;
+                             System.out.println("Yes " + searchAge + " exist");
+                            foundIdengeli = true;                         
                         }
                     }
                     if(!foundIdengeli){
-                        String x = "Family member not found";
-                        System.out.println(x);
+                        // String x = "Family member not found";
+                        System.out.println("Family member not found");
                     }
-                    System.out.println("-----------------");
-                    input1.close();
+                    System.out.println("-----------------");                
                     break;
-
-                    // delete operation
-                    // case 4:
-
-
-
                     
 
-                default:
-                    break;
+                    // delete operation
+                    case 4:
+                    foundIdengeli = false;
+                    System.out.println("Enter by age to delete");
+                    int deleteAge = input1.nextInt();
+                    input1.nextLine();
+                    System.out.println("-----------------");
+                    i = fam.iterator();
+                    while (i.hasNext()) {
+                        Idengeli id = i.next();
+                        if(id.getAge() == deleteAge){
+                            System.out.println(id);
+                            i.remove();
+                             System.out.println(deleteAge + " deleted successfully");
+                            foundIdengeli = true;                         
+                        }
+                    }
+                    
+                     if(!foundIdengeli){
+                        // String x = "Family member not found";
+                        System.out.println("Family member not found");
+                         input1.close();
+                    }else{
+                        System.out.println("Family deleted successfully");
+                    }
+                                        
+                    break;             
+               
             }
+           
 
           } while (ch != 0);
 
